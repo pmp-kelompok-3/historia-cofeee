@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                 />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="true"
+                 />
+
+        </FrameLayout>
+
+
+        <EditText
+            android:id="@+id/ed_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_roundes2"
+            android:padding="10dp"
+            android:backgroundTint="#B2B1B9"
+            android:hint="Name" />
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9"
+            android:padding="10dp"
+            android:text="Chose Menu"
+            android:textColor="@color/white"/>
+
+        <Spinner
+            android:id="@+id/sp_Menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9"
+            android:entries="@array/Pil_Menu"/>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:text="Varian" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9">
+            <CheckBox
+                android:id="@+id/cb_Hot"
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:text="Hot"
+                android:textColor="@color/white" />
+
+            <CheckBox
+                android:id="@+id/cb_Ice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Ice"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9"
+            android:padding="10dp"
+            android:text="Quantity"
+            android:textColor="@color/white"/>
+
+        <Spinner
+            android:id="@+id/sp_Qty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="#B2B1B9"
+            android:entries="@array/Pil_Qty"/>
+
+        <Button
+            android:id="@+id/btn_Saved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="SAVE"
+            android:background="@drawable/bg_roundes2"
+            android:backgroundTint="@color/white" />
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

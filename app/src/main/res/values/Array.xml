@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="Pil_Menu">
+        <item>Mactha Latte</item>
+        <item>Red Velvet Latte</item>
+        <item>Hazelnut</item>
+    </string-array>
+
+</resources>
