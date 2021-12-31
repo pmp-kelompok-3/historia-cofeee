@@ -32,7 +32,7 @@ class Home1 : AppCompatActivity(), View.OnClickListener {
                 startActivity(intentCvHome1)
             }
             R.id.cv_shop -> {
-                val intentSigin = Intent(this@Home1, formPembelian::class.java)
+                val intentSigin = Intent(this@Home1, FormPembelian::class.java)
                 startActivity(intentSigin)
             }
         }

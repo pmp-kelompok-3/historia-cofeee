@@ -13,7 +13,7 @@
             android:name=".OutputPembeli"
             android:exported="false" />
         <activity
-            android:name=".formPembelian"
+            android:name=".FormPembelian"
             android:exported="false" />
         <activity
             android:name=".Home1"

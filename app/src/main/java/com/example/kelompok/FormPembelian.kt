@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class formPembelian : AppCompatActivity() {
+class FormPembelian : AppCompatActivity() {
 
     //edit text
     lateinit var edtNama: EditText
@@ -121,7 +121,7 @@ class formPembelian : AppCompatActivity() {
 //                Toast.LENGTH_LONG).show()
 
             //Buka activity kedua dan kirim pakai intent explisit
-            val intent = Intent(this@formPembelian, OutputPembeli::class.java)
+            val intent = Intent(this@FormPembelian, OutputPembeli::class.java)
                 .apply {
                     putExtra("nama", name)
                     putExtra("menu", menu)
