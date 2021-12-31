@@ -6,13 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kelompok.adapters.MenuCoffeeAdapter
+import com.example.kelompok.models.Coffee
+import java.util.*
+import kotlin.collections.ArrayList
 
- class Home : AppCompatActivity(), OnClickListener {
+class Home : AppCompatActivity(), OnClickListener {
     private lateinit var rvKopi: RecyclerView
 
     private val list = ArrayList<kopi>()
@@ -41,11 +46,11 @@ import androidx.recyclerview.widget.RecyclerView
 
      private fun showRecyclerView() {
          rvKopi.layoutManager = LinearLayoutManager(this)
-        val listkopiAdapter = kopiAdapter(list)
-        rvKopi.adapter = listkopiAdapter
+         val listkopiAdapter = kopiAdapter(list)
+         rvKopi.adapter = MenuCoffeeAdapter()
          listkopiAdapter.setOnItemClickCallback(object : kopiAdapter.OnItemClickCallback {
              override fun onItemClicked(data: kopi) {
-                    showSelectedKopi(data)
+                showSelectedKopi(data)
              }
          })
     }

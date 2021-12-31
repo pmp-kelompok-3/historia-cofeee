@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.example.kelompok.models.Coffee
+import com.example.kelompok.stores.ListCoffee
 import java.util.*
 
 class FormPembelian : AppCompatActivity() {
@@ -32,29 +33,8 @@ class FormPembelian : AppCompatActivity() {
         var price: Double = 0.0
         var totalPrice: Double = 0.0
 
-        val coffees = mutableListOf<Coffee>(
-            Coffee(
-                id = UUID.randomUUID().toString(),
-                name = "Matcha Latte",
-                description = "Pure Matcha extract with fresh milk is the perfect\n beverge for everday activity",
-                price = 20000.0,
-            ),
-            Coffee(
-                id = UUID.randomUUID().toString(),
-                name = "Red Velvet Latte",
-                description = "Red velvet cake in forms of liquid ? its the sweetest\n available option not gonna lie !",
-                price = 20000.0,
-            ),
-            Coffee(
-                id = UUID.randomUUID().toString(),
-                name = "Hazelnut",
-                description = "Expresso and milk with Hazelnut is our best seller!\n Well, who doesnt love its unique flavor ?",
-                price = 20000.0,
-            )
-        );
-
         spMenu = findViewById(R.id.sp_Menu)
-        val coffeeAdapter = ArrayAdapter<Coffee>(this, R.layout.spinner_item, coffees)
+        val coffeeAdapter = ArrayAdapter<Coffee>(this, R.layout.spinner_item, ListCoffee.items())
         spMenu.adapter = coffeeAdapter;
 
         spMenu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
