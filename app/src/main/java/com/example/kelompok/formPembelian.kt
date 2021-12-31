@@ -19,8 +19,8 @@ class formPembelian : AppCompatActivity() {
     lateinit var spQty: Spinner
 
     //checkbox
-    lateinit var cbHot: CheckBox
-    lateinit var cbIce: CheckBox
+    lateinit var cbHot: RadioButton
+    lateinit var cbIce: RadioButton
 
     //button
     lateinit var btnSave: Button
