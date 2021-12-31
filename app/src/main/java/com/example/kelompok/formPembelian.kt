@@ -5,9 +5,13 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.*
+import com.example.kelompok.models.Coffee
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class formPembelian : AppCompatActivity() {
 
@@ -30,16 +34,56 @@ class formPembelian : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_pembelian)
 
-        edtNama = findViewById(R.id.ed_nama)
+        var price: Double = 0.0
+        var totalPrice: Double = 0.0
+
+        val coffees = mutableListOf<Coffee>(
+            Coffee(
+                id = UUID.randomUUID().toString(),
+                name = "Matcha Latte",
+                description = "Pure Matcha extract with fresh milk is the perfect\n beverge for everday activity",
+                price = 20000.0,
+            ),
+            Coffee(
+                id = UUID.randomUUID().toString(),
+                name = "Red Velvet Latte",
+                description = "Red velvet cake in forms of liquid ? its the sweetest\n available option not gonna lie !",
+                price = 20000.0,
+            ),
+            Coffee(
+                id = UUID.randomUUID().toString(),
+                name = "Hazelnut",
+                description = "Expresso and milk with Hazelnut is our best seller!\n Well, who doesnt love its unique flavor ?",
+                price = 20000.0,
+            )
+        );
+
         spMenu = findViewById(R.id.sp_Menu)
+        val coffeeAdapter = ArrayAdapter<Coffee>(this, R.layout.spinner_item, coffees)
+        spMenu.adapter = coffeeAdapter;
+
+        spMenu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>, p1: View, p2: Int, p3: Long) {
+                val selectedCoffee: Coffee = p0.selectedItem as Coffee
+                price = selectedCoffee.price
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        edtNama = findViewById(R.id.ed_nama)
+
         cbHot = findViewById(R.id.cb_Hot)
         cbIce = findViewById(R.id.cb_Ice)
         spQty = findViewById(R.id.sp_Qty)
         btnSave = findViewById(R.id.btn_Saved)
 
 
-
         btnSave.setOnClickListener {
+            totalPrice = price * spQty.selectedItem.toString().toDouble();
+
             // Get Data from Checkbox
             val MenuVarian = StringBuilder()
             MenuVarian.append("")
@@ -60,11 +104,11 @@ class formPembelian : AppCompatActivity() {
             //Get nilai total
 
 
-            var name: String = "Name    :   " + nama
-            var menu: String = "Menu   :   " + menuCoffee
-            var varian: String = "Varian   :" + MenuVarian
-            var qty: String = "Quantity    :" + quantity
-            var total : String = "Total :"
+            var name: String = "Name\t:   " + nama
+            var menu: String = "Menu\t:" + menuCoffee
+            var varian: String = "Varian\t:" + MenuVarian
+            var qty: String = "Quantity\t:" + quantity
+            var total : String = "Total\t: ${price * quantity.toDouble()}"
 
 //             Set all Value to variabel
 //            Toast.makeText(this, menuCoffee,
