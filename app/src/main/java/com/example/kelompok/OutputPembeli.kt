@@ -24,24 +24,21 @@ class OutputPembeli : AppCompatActivity() {
         tvQty = findViewById(R.id.tv_Qty)
         tvTotal = findViewById(R.id.tv_Total)
 
-
         //Menerima data dari activity 1 melalui intent
         val intent = intent
         val head = intent.getStringExtra("Head")
-        val name = intent.getStringExtra("nama")
+        val name = intent.getStringExtra("name")
         val menu = intent.getStringExtra("menu")
-        val varian = intent.getStringExtra("varian")
+        val variant = intent.getStringExtra("variant")
         val qty = intent.getStringExtra("qty")
-        val total = intent.getStringArrayExtra("total")
-//        val nilai = intent.getIntExtra("integer", 0)
+        val total = intent.getStringExtra("total")
 
-        //set / tampilkan ke komponen view
         tvPesan.text = head
         tvName.text = name
         tvMenu.text = menu
-        tvVarian.text = varian
+        tvVarian.text = variant
         tvQty.text = qty
-        tvTotal.text
+        tvTotal.text = "Rp$total"
 
     }
 }

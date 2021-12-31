@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.*
 import com.example.kelompok.models.Coffee
 import com.example.kelompok.stores.ListCoffee
-import java.util.*
 
 class FormPembelian : AppCompatActivity() {
 
@@ -57,7 +56,7 @@ class FormPembelian : AppCompatActivity() {
 
 
         btnSave.setOnClickListener {
-            totalPrice = price * spQty.selectedItem.toString().toDouble();
+            totalPrice = price * spQty.selectedItem.toString().toInt()
 
             // Get Data from Checkbox
             val MenuVarian = StringBuilder()
@@ -69,40 +68,14 @@ class FormPembelian : AppCompatActivity() {
                 MenuVarian.append( "" + cbIce.text)
             }
 
-            //Get data from spinner
-            val menuCoffee: String = spMenu.selectedItem.toString()
-            val quantity: String = spQty.selectedItem.toString()
-
-            //Get data from EditTaext
-            val nama: String = edtNama.text.toString()
-
-            //Get nilai total
-
-
-            var name: String = "Name\t:   " + nama
-            var menu: String = "Menu\t:" + menuCoffee
-            var varian: String = "Varian\t:" + MenuVarian
-            var qty: String = "Quantity\t:" + quantity
-            var total : String = "Total\t: ${price * quantity.toDouble()}"
-
-//             Set all Value to variabel
-//            Toast.makeText(this, menuCoffee,
-//                Toast.LENGTH_LONG).show()
-//            Toast.makeText(this, name,
-//                Toast.LENGTH_LONG).show()
-//            Toast.makeText(this, varian,
-//                Toast.LENGTH_LONG).show()
-//            Toast.makeText(this, quantity,
-//                Toast.LENGTH_LONG).show()
-
             //Buka activity kedua dan kirim pakai intent explisit
-            val intent = Intent(this@FormPembelian, OutputPembeli::class.java)
+            val intent = Intent(this, OutputPembeli::class.java)
                 .apply {
-                    putExtra("nama", name)
-                    putExtra("menu", menu)
-                    putExtra("varian", varian)
-                    putExtra("qty", qty)
-                    putExtra("total", total)
+                    putExtra("name", edtNama.text.toString())
+                    putExtra("menu", spMenu.selectedItem.toString())
+                    putExtra("variant", MenuVarian.toString())
+                    putExtra("qty", spQty.selectedItem.toString())
+                    putExtra("total", totalPrice.toString())
                     putExtra("Head", "Historia Coffee")
                 }
             startActivity(intent)
