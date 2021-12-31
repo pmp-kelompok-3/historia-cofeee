@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_detail_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_form_pembelian.xml" value="0.33" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_home.xml" value="0.12771739130434784" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_home1.xml" value="0.12771739130434784" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_main_lognin.xml" value="0.12771739130434784" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/activity_output_pembeli.xml" value="0.12771739130434784" />
         <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/item_card_foto1.xml" value="0.12771739130434784" />
+        <entry key="..\:/project-local/Main/historia-cofeee/app/src/main/res/layout/layout.xml" value="0.1" />
       </map>
     </option>
   </component>
