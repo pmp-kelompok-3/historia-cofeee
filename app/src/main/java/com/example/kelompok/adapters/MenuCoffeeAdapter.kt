@@ -9,9 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.kelompok.R
+import com.example.kelompok.models.Coffee
 import com.example.kelompok.stores.ListCoffee
 
+interface MenuAdapterProps {
+    fun onClick(coffee: Coffee)
+}
+
 class MenuCoffeeAdapter : RecyclerView.Adapter<MenuCoffeeAdapter.CardViewViewHolder>() {
+    private lateinit var props: MenuAdapterProps;
+
+    lateinit var onClick: (coffee: Coffee) -> Unit;
+
     inner class CardViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.img_item1)
         var textViewName: TextView = itemView.findViewById(R.id.tv_item_foto1)
@@ -31,6 +40,10 @@ class MenuCoffeeAdapter : RecyclerView.Adapter<MenuCoffeeAdapter.CardViewViewHol
         holder.also {
             it.textViewName.text = coffee.name
             it.textViewDeskripsi.text = coffee.description
+
+            holder.itemView.setOnClickListener {
+                this.onClick(coffee)
+            }
         }
     }
 

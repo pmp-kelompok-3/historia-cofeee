@@ -6,15 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kelompok.adapters.MenuCoffeeAdapter
 import com.example.kelompok.models.Coffee
-import java.util.*
 import kotlin.collections.ArrayList
 
 class Home : AppCompatActivity(), OnClickListener {
@@ -40,31 +36,20 @@ class Home : AppCompatActivity(), OnClickListener {
         btnDial.setOnClickListener(this)
     }
 
-     private fun replace(rvKopi: Int) {
-
-     }
-
      private fun showRecyclerView() {
          rvKopi.layoutManager = LinearLayoutManager(this)
-         val listkopiAdapter = kopiAdapter(list)
-         rvKopi.adapter = MenuCoffeeAdapter()
-         listkopiAdapter.setOnItemClickCallback(object : kopiAdapter.OnItemClickCallback {
-             override fun onItemClicked(data: kopi) {
-                showSelectedKopi(data)
-             }
-         })
+
+         val menuCoffeeAdapter = MenuCoffeeAdapter()
+         rvKopi.adapter = menuCoffeeAdapter
+
+         menuCoffeeAdapter.onClick = fun (coffee: Coffee) {
+             val intent = Intent(this, DetailMenu::class.java)
+             intent.putExtra(DetailMenu.EXTRA_NAME, coffee.name)
+             intent.putExtra(DetailMenu.EXTRA_DESC, coffee.description)
+             intent.putExtra(DetailMenu.EXTRA_PHOTO, coffee.image)
+             startActivity(intent)
+         }
     }
-
-     private fun showSelectedKopi(kopi: kopi) {
-//         Toast.makeText(this, "Kamu memilih " + kopi.name, Toast.LENGTH_SHORT).show()
-
-         val moveWithDataIntent = Intent(this@Home, DetailMenu::class.java)
-         moveWithDataIntent.putExtra(DetailMenu.EXTRA_NAME, kopi.name)
-         moveWithDataIntent.putExtra(DetailMenu.EXTRA_DESC, kopi.deskripsi)
-         moveWithDataIntent.putExtra(DetailMenu.EXTRA_PHOTO, kopi.photo)
-         startActivity(moveWithDataIntent)
-     }
-
 
      override fun onClick(p0: View) {
          when(p0.id){
