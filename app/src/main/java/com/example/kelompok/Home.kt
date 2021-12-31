@@ -11,12 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kelompok.adapters.MenuCoffeeAdapter
 import com.example.kelompok.models.Coffee
-import kotlin.collections.ArrayList
 
 class Home : AppCompatActivity(), OnClickListener {
     private lateinit var rvKopi: RecyclerView
-
-    private val list = ArrayList<kopi>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +22,6 @@ class Home : AppCompatActivity(), OnClickListener {
         rvKopi = findViewById(R.id.rvKopi)
         rvKopi.setHasFixedSize(true)
 
-        list.addAll(kopiData.listData)
         showRecyclerView()
 
         val btnShare : Button = findViewById(R.id.btnShare)
